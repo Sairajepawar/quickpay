@@ -37,22 +37,25 @@ export default function UserComponent() {
 }
 
 function User({user}){
+    const firstName = formatString(user.firstName);
+    const lastName = formatString(user.lastName);
+    const full_name = firstName+" "+lastName;
     const navigate = useNavigate();
     return (
         <div className="flex justify-between my-4">
             <div className="flex gap-2 font-bold">
                 <div className="rounded-full h-12 w-12 bg-slate-200">
                     <div className="flex flex-row justify-center items-center h-full">
-                        {user.firstName[0].toUpperCase()}
+                        {user.firstName[0]}
                     </div>
                 </div>
                 <div className="flex flex-col justify-center h-full">
-                    {formatString(user.firstName)+" "+formatString(user.lastName)}
+                    {firstName+" "+lastName}
                 </div>
             </div>
             <div className="flex flex-col justify-center h-full">
                 <Button label={"Send Money"} onClick={()=>{
-                    navigate(`/send/${user._id}`);
+                    navigate(`/send/${user._id}/${full_name}`);
                 }}></Button>
             </div>
         </div>

@@ -34,7 +34,7 @@ function Signup(){
                             }
                         });
                         localStorage.setItem("token", response.data.token);
-                        navigate("/dashboard")
+                        navigate("/")
                     }}></Button>
                 </div>
                 <BottomWarning label={"Already have an account?"} buttonText={"Login"} to={'/login'}/>

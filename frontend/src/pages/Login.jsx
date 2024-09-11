@@ -20,16 +20,21 @@ function Login() {
                 <InputBox label={"Password"}  type={"password"} onChange={(e) => setPassword(e.target.value)} />
                 <div className="pt-4">
                     <Button label={"Login"} onClick={async ()=>{
-                        const response = await axios.post("http://localhost:3000/api/v1/user/login", {
-                            userName: email,
-                            password: password,
-                        },{
-                            headers: {
-                                "Content-Type": "application/json",
-                            }
-                        })
-                        localStorage.setItem("token", response.data.token);
-                        navigate("/dashboard");
+                        try{
+                            const response = await axios.post("http://localhost:3000/api/v1/user/login", {
+                                userName: email,
+                                password: password,
+                            }, {
+                                headers: {
+                                    "Content-Type": "application/json",
+                                }
+                            })
+                            localStorage.setItem("token", response.data.token);
+                            navigate("/");
+                        }
+                        catch(err){
+                            console.error(err);
+                        }
                     }}></Button>
                 </div>
                 <BottomWarning label={"Don't have an account?"} buttonText={"Sign up"} to={'/signup'}/>

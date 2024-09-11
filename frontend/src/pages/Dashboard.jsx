@@ -3,10 +3,16 @@ import BalanceBar from "../components/BalanceBar.jsx";
 import UserComponent from "../components/UserComponent.jsx";
 import axios from "axios";
 import {useState,useEffect} from "react";
+import {useNavigate} from "react-router-dom";
 function Dashboard() {
+    const navigate = useNavigate();
     const [firstName, setFirstName] = useState("");
     const [balance, setBalance] = useState("");
+
     useEffect(()=>{
+        if(localStorage.getItem("token")=='' || localStorage.getItem("token")=='null'){
+            navigate('/signup');
+        }
         const getFirstName = async ()=> {
             try
             {
