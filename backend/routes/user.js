@@ -5,7 +5,6 @@ const zod = require("zod");
 const jwt = require("jsonwebtoken");
 const {authMiddleware} = require("../middleware/index");
 const mongoose = require("mongoose");
-const JWT_SECRET = process.env.JWT_SECRET;
 
 // schema for signup
 const signupSchema = zod.object({
@@ -40,7 +39,6 @@ router.use(express.json());
 // routes for signup
 router.post("/signup", async (req, res) => {
     const body = req.body;
-    console.log(body);
     // cross verify the structure of input using zod
     const {success} = signupSchema.safeParse(body);
     if(!success){
@@ -70,7 +68,7 @@ router.post("/signup", async (req, res) => {
         })
 
         // returning jwt token
-        const token = jwt.sign({userName},JWT_SECRET)
+        const token = jwt.sign({userName},process.env.JWT_SECRET)
         res.json({
             message: "Signup Successful",
             token: token,
@@ -98,7 +96,7 @@ router.post("/login", async (req, res) => {
     {
         // keep in mind passwords are hashed before they are stored in database
         const user = await User.findOne({userName});
-        const token = jwt.sign({userName},JWT_SECRET)
+        const token = jwt.sign({userName},process.env.JWT_SECRET)
         if(user){
             const match = await bcrypt.compare(password, user.password);
             if(match){

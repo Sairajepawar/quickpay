@@ -4,7 +4,7 @@ const mainRouter = require("./routes/mainRouter");
 const { connectDB } = require('./db')
 const cors = require("cors");
 const dotenv = require("dotenv");
-require("dotenv").config();
+dotenv.config();
 
 
 const app = express();
@@ -18,5 +18,6 @@ app.use('/api/v1/',mainRouter);
 
 app.listen(port, () => {
   console.log(`Server is lauched on ${port}`);
+  console.log(`${process.env.JWT_SECRET}`)
 });
 connectDB();

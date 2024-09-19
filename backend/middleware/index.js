@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const JWT_SECRET = process.env.JWT_SECRET;
 const authMiddleware = (req,res,next)=>{
     const token = req.headers.authorization.split(' ');
     if(!token || token[0]!="Bearer"){
@@ -9,7 +8,7 @@ const authMiddleware = (req,res,next)=>{
     }
     try
     {
-        const decodedToken = jwt.verify(token[1], JWT_SECRET);
+        const decodedToken = jwt.verify(token[1], process.env.JWT_SECRET);
         if (!decodedToken) {
             return res.status(401).json({
                 message:"Unauthorized",
