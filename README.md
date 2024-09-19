@@ -1,115 +1,115 @@
-# Paytm Clone
 
-A full-stack web application that replicates the core functionality of Paytm, an Indian digital payment platform. This project is built using the MERN stack (MongoDB, Express.js, React.js, Node.js) to demonstrate a real-world payment system, user authentication, and transactional features.
+# QuickPay
+
+**QuickPay** is a full-stack web application  which provides digital payment platform. This project is built using the MERN stack (MongoDB, Express.js, React.js, Node.js) to simulate a real-world payment system, user authentication, and transactional features. The application is designed to be responsive, secure, and scalable, offering essential features such as digital wallet management, peer-to-peer payments, and user-friendly navigation.
 
 ## Features
 
-- **User Authentication:** Secure login/signup using JWT (JSON Web Tokens).
-- **Digital Wallet:** Manage your funds and transactions with a virtual wallet.
-- **Payments:** Perform seamless peer-to-peer transactions.
-- **Responsive Design:** Fully responsive UI using React and Bootstrap/TailwindCSS.
+- **User Authentication:** 
+   - Secure login and signup process utilizing JWT (JSON Web Tokens) to maintain user sessions. 
+   - Passwords are encrypted using bcrypt.js for enhanced security.
+   - Session persistence across various devices is ensured with tokens.
+
+- **Digital Wallet:**
+   - Users can create and manage a virtual wallet to handle their funds.
+   - The wallet allows for balance viewing, transaction history tracking, and other wallet-related actions.
+   - Recharge wallet functionality to simulate adding funds.
+
+- **Payments:**
+   - Seamlessly perform peer-to-peer transactions between registered users.
+   - Initiate payments by entering a recipient’s user ID or scanning a QR code (optional).
+   - View transaction history, including successful and failed transactions.
+
+- **Transaction Management:**
+   - Each transaction is logged, showing the details of the sender, recipient, amount, and timestamp.
+   - Ability to cancel pending transactions (optional feature for testing purposes).
+
+- **Responsive Design:**
+   - Built using React and styled with TailwindCSS/Bootstrap to ensure a smooth and responsive UI/UX across all devices, including mobile, tablet, and desktop.
 
 ## Tech Stack
 
-- **Frontend:** React.js, TailwindCSS/Bootstrap
-- **Backend:** Node.js, Express.js
-- **Database:** MongoDB, Mongoose
-- **Authentication:** JWT, bcrypt.js for password encryption
-- **API Integration:** Axios for handling API requests
-- **Payment Gateway (Optional):** You can integrate a payment gateway like Razorpay or Stripe for actual transactions.
+- **Frontend:**
+  - React.js for creating dynamic and responsive user interfaces.
+  - TailwindCSS or Bootstrap for styling and layout.
+  - Axios for handling asynchronous HTTP requests between the client and server.
 
+- **Backend:**
+  - Node.js and Express.js for handling server-side logic, API routes, and request handling.
+  - JWT for managing user authentication and session security.
+  - Bcrypt.js for hashing and securing passwords.
+
+- **Database:**
+  - MongoDB as the primary database to store user details, transactions, and wallet information.
+  - Mongoose as the Object Data Modeling (ODM) library for MongoDB.
 ## Installation and Setup
+
+### Prerequisites
+- **Node.js** and **npm** installed on your local machine.
+- **MongoDB** set up locally or use a cloud database (e.g., MongoDB Atlas).
+- Optional: Sign up for Razorpay/Stripe to enable payment gateway integration.
+
+### Steps to Run Locally
 
 1. **Clone the repository:**
     ```bash
-    git clone https://github.com/Sairajepawar/paytm--clone.git
-    cd paytm--clone
+    git clone https://github.com/Sairajepawar/quickpay.git
+    cd quickpay
     ```
 
 2. **Install dependencies for both frontend and backend:**
-    ```bash
-    cd client
-    npm install
-    cd ../server
-    npm install
-    ```
+    - Frontend:
+      ```bash
+      cd frontend
+      npm install
+      ```
+
+    - Backend:
+      ```bash
+      cd backend
+      npm install
+      ```
 
 3. **Set up environment variables:**
-    Create a `.env` file in the root of the `server` directory with the following values:
+    Create a `.env` file in the `backend` directory with the following values:
     ```bash
-    PORT=5000
+    PORT=3000
     MONGO_URI=your_mongodb_connection_string
     JWT_SECRET=your_secret_key
     ```
 
 4. **Run the development servers:**
-
-    - Start the backend:
+    - Start the backend server:
       ```bash
-      cd server
-      npm start
+      cd backend
+      node server.js
       ```
 
-    - Start the frontend:
+    - Start the frontend development server:
       ```bash
-      cd client
-      npm start
+      cd frontend
+      npm run dev
       ```
 
 5. **Access the application:**
-    Open [http://localhost:3000](http://localhost:3000) to view the frontend and [http://localhost:5000](http://localhost:5000) for the backend API.
+    - Frontend: Open [http://localhost:5173](http://localhost:5173)
+    - Backend API: Open [http://localhost:3000](http://localhost:3000)
 
-## Folder Structure
-
-```
-.
-├── client                # Frontend (React)
-│   ├── public            # Public assets
-│   └── src               # React components and Redux store
-├── server                # Backend (Node.js, Express)
-│   ├── config            # Database and environment configurations
-│   ├── controllers       # Route controllers
-│   ├── models            # Mongoose schemas/models
-│   └── routes            # Express API routes
-└── README.md             # Project documentation
-```
+6. **Test the features:**
+   - Sign up or log in to create a user account.
+   - Access your virtual wallet, send payments, and view transaction history.
 
 ## Contributing
 
-Feel free to fork this repository and contribute to improve the features or fix bugs. Create a pull request if you would like to add new features.
+We welcome contributions! If you'd like to contribute, please follow these steps:
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature-branch`).
+3. Commit your changes (`git commit -m 'Add feature'`).
+4. Push to the branch (`git push origin feature-branch`).
+5. Open a pull request.
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
-
-### MIT License
-
-```
-MIT License
-
-Copyright (c) [2024] [Your Name]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
-
-This README provides a basic overview of the project structure, installation, and licensing. Let me know if you'd like to add or modify any specific sections!
