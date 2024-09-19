@@ -84,7 +84,6 @@ router.post("/signup", async (req, res) => {
 // route for login
 router.post("/login", async (req, res) => {
     const body = req.body;
-    console.log(body);
     const { success } = loginSchema.safeParse(body);
     if(!success){
         return res.status(411).json({

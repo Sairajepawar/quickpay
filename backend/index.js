@@ -18,6 +18,5 @@ app.use('/api/v1/',mainRouter);
 
 app.listen(port, () => {
   console.log(`Server is lauched on ${port}`);
-  console.log(`${process.env.JWT_SECRET}`)
 });
 connectDB();
