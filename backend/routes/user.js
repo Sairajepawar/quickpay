@@ -3,9 +3,9 @@ const { User,Account } = require("../db");
 const bcrypt = require("bcryptjs");
 const zod = require("zod");
 const jwt = require("jsonwebtoken");
-const {JWT_SECRET} = require("../config");
 const {authMiddleware} = require("../middleware/index");
 const mongoose = require("mongoose");
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // schema for signup
 const signupSchema = zod.object({

@@ -3,6 +3,7 @@ import Dashboard from './pages/Dashboard'
 import Login from './pages/Login.jsx'
 import Send from './pages/Send'
 import Signup from './pages/Signup'
+
 function App() {
   return (
     <>
