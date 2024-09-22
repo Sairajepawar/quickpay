@@ -12,19 +12,18 @@
 
 - **Digital Wallet:**
    - Users can create and manage a virtual wallet to handle their funds.
-   - The wallet allows for balance viewing, transaction history tracking, and other wallet-related actions.
 
 - **Payments:**
    - Seamlessly perform peer-to-peer transactions between registered users.
 
 - **Responsive Design:**
-   - Built using React and styled with TailwindCSS/Bootstrap to ensure a smooth and responsive UI/UX across all devices, including mobile, tablet, and desktop.
+   - Built using React and styled with TailwindCSS to ensure a smooth and responsive UI/UX.
 
 ## Tech Stack
 
 - **Frontend:**
   - React.js for creating dynamic and responsive user interfaces.
-  - TailwindCSS or Bootstrap for styling and layout.
+  - TailwindCSS for styling and layout.
   - Axios for handling asynchronous HTTP requests between the client and server.
 
 - **Backend:**
@@ -40,7 +39,6 @@
 ### Prerequisites
 - **Node.js** and **npm** installed on your local machine.
 - **MongoDB** set up locally or use a cloud database (e.g., MongoDB Atlas).
-- Optional: Sign up for Razorpay/Stripe to enable payment gateway integration.
 
 ### Steps to Run Locally
 
@@ -90,7 +88,7 @@
 
 6. **Test the features:**
    - Sign up or log in to create a user account.
-   - Access your virtual wallet, send payments, and view transaction history.
+   - Access your virtual wallet, send payments.
 
 ## Contributing
 
