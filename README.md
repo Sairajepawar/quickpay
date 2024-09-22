@@ -13,16 +13,9 @@
 - **Digital Wallet:**
    - Users can create and manage a virtual wallet to handle their funds.
    - The wallet allows for balance viewing, transaction history tracking, and other wallet-related actions.
-   - Recharge wallet functionality to simulate adding funds.
 
 - **Payments:**
    - Seamlessly perform peer-to-peer transactions between registered users.
-   - Initiate payments by entering a recipient’s user ID or scanning a QR code (optional).
-   - View transaction history, including successful and failed transactions.
-
-- **Transaction Management:**
-   - Each transaction is logged, showing the details of the sender, recipient, amount, and timestamp.
-   - Ability to cancel pending transactions (optional feature for testing purposes).
 
 - **Responsive Design:**
    - Built using React and styled with TailwindCSS/Bootstrap to ensure a smooth and responsive UI/UX across all devices, including mobile, tablet, and desktop.
