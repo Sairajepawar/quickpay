@@ -1,7 +1,7 @@
 
 # QuickPay
 
-**QuickPay** is a full-stack web application  which provides digital payment platform. This project is built using the MERN stack (MongoDB, Express.js, React.js, Node.js) to simulate a real-world payment system, user authentication, and transactional features. The application is designed to be responsive, secure, and scalable, offering essential features such as digital wallet management, peer-to-peer payments, and user-friendly navigation.
+**QuickPay** is a full-stack web application  which provides digital payment platform. This project is built using the MERN stack (MongoDB, Express.js, React.js, Node.js) to simulate a real-world payment system, user authentication, and transactional features. The application is designed to be responsive, secure, and scalable, offering essential features such as, peer-to-peer payments, and user-friendly navigation.
 
 ## Features
 
