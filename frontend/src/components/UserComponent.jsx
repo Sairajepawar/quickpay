@@ -15,8 +15,6 @@ export default function UserComponent() {
                     "Authorization": "Bearer " + localStorage.getItem("token")
                 }
             })
-            console.log(filter);
-            console.log(response.data)
             setUsers(response.data.users);
         }
         getUsers();

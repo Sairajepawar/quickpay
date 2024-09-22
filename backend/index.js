@@ -17,6 +17,6 @@ app.use(express.json()); //middleware to parse json
 app.use('/api/v1/',mainRouter);
 
 app.listen(port, () => {
-  console.log(`Server is lauched on ${port}`);
+  console.log(`Server is lauched `);
 });
 connectDB();

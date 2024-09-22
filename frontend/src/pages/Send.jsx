@@ -5,7 +5,6 @@ function Send() {
     const friend = useParams();
     const [amount, setAmount] = useState(0);
     const navigate = useNavigate();
-    // console.log(typeof (amount));
     return (
         <div className="flex justify-center h-screen bg-gray-100">
             <div className="h-full flex flex-col justify-center">
@@ -56,8 +55,6 @@ function Send() {
 }
 
 async function transfer(to,amount){
-    console.log(to);
-    console.log(amount);
     try
     {
         const response = await axios.post("http://localhost:3000/api/v1/account/transfer",
