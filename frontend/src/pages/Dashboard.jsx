@@ -11,7 +11,7 @@ function Dashboard() {
     const [balance, setBalance] = useState("");
 
     useEffect(()=>{
-        if(localStorage.getItem("token")=='' || localStorage.getItem("token")=='null'){
+        if(localStorage.getItem("token")=='' || localStorage.getItem("token")==null){
             navigate('/signup');
         }
         const getFirstName = async ()=> {
