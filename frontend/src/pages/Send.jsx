@@ -57,7 +57,7 @@ function Send() {
 async function transfer(to,amount){
     try
     {
-        const response = await axios.post("http://localhost:3000/api/v1/account/transfer",
+        const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}api/v1/account/transfer`,
             {
                 "to": to,
                 "amount": amount

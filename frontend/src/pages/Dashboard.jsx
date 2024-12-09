@@ -17,7 +17,7 @@ function Dashboard() {
         const getFirstName = async ()=> {
             try
             {
-                const response = await axios.get('http://localhost:3000/api/v1/user/firstname', {
+                const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}api/v1/user/firstname`, {
                     headers: {
                         "Content-Type": "application/json",
                         "Authorization": "Bearer " + localStorage.getItem("token")
@@ -32,7 +32,7 @@ function Dashboard() {
         const getBalance = async ()=> {
             try
             {
-                const response = await axios.get('http://localhost:3000/api/v1/account/balance', {
+                const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}api/v1/account/balance`, {
                     headers: {
                         "Content-Type": "application/json",
                         "Authorization": "Bearer " + localStorage.getItem("token")

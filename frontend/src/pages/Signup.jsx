@@ -23,7 +23,7 @@ function Signup(){
                 <InputBox label={"Password"} type={"password"} onChange={(e) => setPassword(e.target.value)}/>
                 <div className="pt-4">
                     <Button label={"Sign Up"} onClick={async()=>{
-                        const response = await axios.post("http://localhost:3000/api/v1/user/signup", {
+                        const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}api/v1/user/signup`, {
                             firstName: firstName,
                             lastName: lastName,
                             userName: email,

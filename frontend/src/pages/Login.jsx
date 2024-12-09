@@ -21,7 +21,7 @@ function Login() {
                 <div className="pt-4">
                     <Button label={"Login"} onClick={async ()=>{
                         try{
-                            const response = await axios.post("http://localhost:3000/api/v1/user/login", {
+                            const response = await axios.post(`${import.meta.env.VITE_API_BASE_URL}api/v1/user/login`, {
                                 userName: email,
                                 password: password,
                             }, {

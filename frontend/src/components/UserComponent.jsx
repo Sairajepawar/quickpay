@@ -9,7 +9,7 @@ export default function UserComponent() {
 
     useEffect(()=>{
         const getUsers = async () => {
-            const response = await axios.get("http://localhost:3000/api/v1/user/bulk?filter="+filter, {
+            const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}api/v1/user/bulk?filter=`+filter, {
                 headers:{
                     "Content-Type": "application/json",
                     "Authorization": "Bearer " + localStorage.getItem("token")
