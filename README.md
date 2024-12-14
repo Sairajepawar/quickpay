@@ -62,18 +62,24 @@
       ```
 
 3. **Set up environment variables:**
-    Create a `.env` file in the `backend` directory with the following values:
+    - Create a `.env` file in the `backend` directory with the following values:
     ```bash
     PORT=3000
     MONGODB_URL=your_mongodb_connection_string
     JWT_SECRET=your_secret_key
     ```
 
+    - Create a `.env` file in the `frontend` directory with the following values:
+    ```bash
+      VITE_API_BASE_URL=api_url
+    ```
+    for running locally ``` api_url=http://localhost:3000```
+
 4. **Run the development servers:**
     - Start the backend server:
       ```bash
       cd backend
-      node server.js
+      node index.js
       ```
 
     - Start the frontend development server:
