@@ -1,5 +1,5 @@
 const express = require('express');
-const {Account,User} = require('../db/index');
+const {Account,User,Transaction} = require('../db/index');
 const { authMiddleware } = require('../middleware/index')
 const zod = require('zod');
 const router = express.Router();
@@ -76,6 +76,16 @@ router.post('/transfer',authMiddleware,async (req,res)=>{
         // operation for reciever
         await Account.updateOne({userId: req.body.to}, {$inc:{balance: req.body.amount}}).session(session);
 
+        // once operation is done, record this transaction
+        const currentDate = new Date();
+        await Transaction.create({
+            date: currentDate,
+            sender:temp1._id,
+            reciever: req.body.to,
+            amount:req.body.amount,
+        })
+        
+
         await session.commitTransaction();
         session.endSession();
         return res.json({
@@ -89,5 +99,14 @@ router.post('/transfer',authMiddleware,async (req,res)=>{
         });
     }
 })
+
+// add route to get transaction history of the user
+// router.get('/history',authMiddleware,async (req,res)=>{
+//     const userName = req.userName;
+//     // logic to get all transaction related to user
+//     // incoming transaction
+//     // outgoing transaction
+//     // sort them according to date
+// })
 
 module.exports = router;
