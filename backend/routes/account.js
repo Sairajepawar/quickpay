@@ -13,6 +13,11 @@ const transferSchema = zod.object({
     amount: zod.number(),
 });
 
+function compare(a,b){
+    return a.date<b.date;
+}
+
+
 // to check the balance
 router.get('/balance',authMiddleware,async (req,res)=>{
     try{
@@ -101,12 +106,27 @@ router.post('/transfer',authMiddleware,async (req,res)=>{
 })
 
 // add route to get transaction history of the user
-// router.get('/history',authMiddleware,async (req,res)=>{
-//     const userName = req.userName;
-//     // logic to get all transaction related to user
-//     // incoming transaction
-//     // outgoing transaction
-//     // sort them according to date
-// })
+router.get('/history',authMiddleware,async (req,res)=>{
+    const user = await User.findOne({userName:req.userName});
+    const id = user._id;
+    try{
+        // incoming transaction
+        const incoming_transaction = await Transaction.find({sender:id});
+        // outgoing transaction
+        const outgoing_transcation = await Transaction.find({reciever:id});
+        // sort them according to date
+        const transaction = incoming_transaction.concat(outgoing_transcation);
+        transaction.sort(compare);
+        return res.json({
+            transaction: transaction
+        })
+    }
+    catch(err){
+        console.error(err);
+        return res.status(500).json({
+            message:"Internal Server Error"
+        })
+    }
+})
 
 module.exports = router;
