@@ -13,8 +13,35 @@ const transferSchema = zod.object({
     amount: zod.number(),
 });
 
+// compare function to sort transaction according to date
 function compare(a,b){
     return a.date<b.date;
+}
+
+// convert userid to username
+async function to_username(id){
+    const user = await User.findOne({_id:id});
+    console.log(user);
+    return user.userName; 
+}
+
+//convert iso-timestamp into human readable date
+function to_date(timestamp){
+    const date = new Date(timestamp);
+
+    // Convert to IST
+    const istDate = date.toLocaleString("en-IN", {
+    timeZone: "Asia/Kolkata",
+    weekday: "long", // Include day of the week
+    year: "numeric",
+    month: "long", // Full month name
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    });
+
+    return istDate;
 }
 
 
@@ -115,10 +142,18 @@ router.get('/history',authMiddleware,async (req,res)=>{
         // outgoing transaction
         const outgoing_transcation = await Transaction.find({reciever:id});
         // sort them according to date
-        const transaction = incoming_transaction.concat(outgoing_transcation);
+        var transaction = incoming_transaction.concat(outgoing_transcation);
         transaction.sort(compare);
+        const transformed_transaction = await Promise.all(transaction.map(async (ele)=>{
+            const transformed_ele = {};
+            transformed_ele.date = to_date(ele.date);
+            transformed_ele.sender = await to_username(ele.sender);
+            transformed_ele.reciever = await to_username(ele.reciever);
+            transformed_ele.amount = ele.amount;
+            return transformed_ele;
+        }))
         return res.json({
-            transaction: transaction
+            transaction: transformed_transaction
         })
     }
     catch(err){
