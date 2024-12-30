@@ -21,7 +21,6 @@ function compare(a,b){
 // convert userid to username
 async function to_username(id){
     const user = await User.findOne({_id:id});
-    console.log(user);
     return user.userName; 
 }
 
@@ -143,7 +142,6 @@ router.get('/history',authMiddleware,async (req,res)=>{
         const outgoing_transcation = await Transaction.find({reciever:id});
         // sort them according to date
         var transaction = incoming_transaction.concat(outgoing_transcation);
-        transaction.sort(compare);
         const transformed_transaction = await Promise.all(transaction.map(async (ele)=>{
             const transformed_ele = {};
             transformed_ele.date = to_date(ele.date);
@@ -152,8 +150,9 @@ router.get('/history',authMiddleware,async (req,res)=>{
             transformed_ele.amount = ele.amount;
             return transformed_ele;
         }))
+        const final_transaction = transformed_transaction.sort(compare);
         return res.json({
-            transaction: transformed_transaction
+            transaction: final_transaction
         })
     }
     catch(err){

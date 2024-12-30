@@ -7,6 +7,12 @@ export default function Appbar({firstName}) {
         <div className="flex shadow justify-between h-14">
             <div className="flex flex-col justify-center ml-4 h-full font-bold text-2xl">QuickPay</div>
             <div className="flex">
+            <div className="flex flex-col justify-center mr-4 h-full">
+                    <button className="" onClick={() => {
+                        navigate(`/history`);
+                    }}>Transactions
+                    </button>
+                </div>
                 <div className="flex flex-col justify-center mr-4 h-full">
                     <button className="" onClick={() => {
                         localStorage.setItem('token', null);

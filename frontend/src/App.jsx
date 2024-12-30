@@ -3,6 +3,7 @@ import Dashboard from './pages/Dashboard'
 import Login from './pages/Login.jsx'
 import Send from './pages/Send'
 import Signup from './pages/Signup'
+import Transaction from "./pages/Transaction.jsx"
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
             <Route path="/login" element={<Login/>} />
             <Route path="/" element={<Dashboard/>} />
             <Route path="/send/:id/:full_name" element={<Send/>} />
+            <Route path="/history" element={<Transaction/>} />
         </Routes>
     </BrowserRouter>
     </>
