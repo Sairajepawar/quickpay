@@ -68,6 +68,7 @@
     MONGODB_URL=your_mongodb_connection_string
     JWT_SECRET=your_secret_key
     ```
+    sample of mongodb connection string``` mongodb_connection_string = mongodb://USERNAME:PASSWORD@localhost:27017```
 
     - Create a `.env` file in the `frontend` directory with the following values:
     ```bash

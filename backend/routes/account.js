@@ -71,7 +71,6 @@ router.get('/balance',authMiddleware,async (req,res)=>{
     }
 })
 
-// not tested yet
 // to transfer money to another account
 router.post('/transfer',authMiddleware,async (req,res)=>{
     try{
